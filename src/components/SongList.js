@@ -35,8 +35,11 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-    selectSong
-}, dispatch);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        ...bindActionCreators({ selectSong }, dispatch),
+        dispatch
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongList);
